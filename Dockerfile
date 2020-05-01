@@ -2,7 +2,7 @@
 FROM ruby:2.4.5
 # ruby:2.4.5のイメージからコンテナを起動してコンテナ内で実行するコマンドを定義
 # build-essentialとnodejsのパッケージをインストール
-RUN apt-get update -qq && apt-get install -y build-essential nodejs
+RUN apt-get update -qq && apt-get install -y build-essential nodejs mysql-client
 # ルートディレクトリに/appディレクトリ作成。appディレクトリ内にrailsのプロジェクトファイルを作成する
 RUN mkdir /app
 # 作業ディレクトリを/appディレクトリに移動
