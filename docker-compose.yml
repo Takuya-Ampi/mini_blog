@@ -1,0 +1,43 @@
+# docker-compose.ymlのフォーマットのバージョン
+version: '3'
+services:
+  # webはrailsコンテナの定義
+  web:
+    # Docker-compose.ymlファイルと同じディレクトリにあるDockerfileを元にイメージを作成して使用することを意味する。
+    build: .
+    # コンテナを起動した時にデフォルトで実行されるコマンドを設定している。
+    # railsのwebサーバーを起動するコマンドになっている。
+    # bundle exec railsとすることでgemファイルでインストールしたrailsコマンドを実行できる
+    # 引数のsはサーバーを省略したものでwebサーバーを起動する際に使用する。
+    # -pで公開するポート番号を設定。
+    # -bでバインドするipアドレスを設定。
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    # PC上のディレクトリをコンテナの/appディレクトリにマウント。
+    # PC上のcompose-up.ymlファイルが置いてあるディレクトリがコンテナの/appディレクトリに共有される。
+    # これによってPC上で修正したソースコードがコンテナ上にも即座に反映される。
+    volumes:
+      - .:/app
+    # コンテナの外部に3000版ポートを公開するように設定している。
+    # コロンの左側が公開するポート番号。コロンの右側がコンテナ内部の転送先ポート番号
+    ports:
+      - 3000:3000
+    # railsが起動する前にdbが先に起動するように設定。
+    depends_on:
+      - db
+    # ttyとstdin_openはpryをしようしてデバッグする際に必要な設定。
+    tty: true
+    stdin_open: true
+
+  # dbはMySQLサーバーコンテナの定義
+  db:
+    image: mysql:5.7
+    # PC上に作成した領域を- db-volume:/var/lib/mysqlディレクトリにマウント
+    # volumesを設定しない場合dbのデータは直にコンテナ上に作成されるが、コンテナが削除された場合にデータも一緒に消えるため、それを回避するために設定する。
+    volumes:
+      - db-volume:/var/lib/mysql
+    #MySQLのrootユーザーのパスワードを設定するために使用
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+# この定義によりPC上にdb-volumeという名前でボリューム（データ保持領域)が作成される
+volumes:
+  db-volume:
