@@ -13,3 +13,146 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+header,
+footer,
+main,
+nav,
+article,
+aside,
+section,
+time,
+video {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+button {
+    display: block;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+
+
+.header{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+  height: 100px;
+}
+.header__logo{
+  width: 56px;
+  height: 56px;
+}
+.header__logo-img{
+  width: 56px;
+  height: 56px;
+}
