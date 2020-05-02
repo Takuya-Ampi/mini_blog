@@ -10,9 +10,22 @@
 
   <body>
   <header class="header">
-    <div class="header__logo">
-      <img class="header__logo-img" src="<%= image_path('home/logo.svg') %>" alt="ロゴ">
+    <div class="header__title">
+      <div class="header__logo">
+        <img class="header__logo-img" src="<%= image_path('home/logo.svg') %>" alt="ロゴ">
+      </div>
+      <h2 class="header__catch">mini blog</h2>
     </div>
+    <nav class="header__nav">
+      <ul class="header__menus">
+        <li>
+          <%= link_to("ホーム", "/") %>
+        </li>
+        <li>
+          <%= link_to("投稿一覧", "/posts/index") %>
+        </li>
+      </ul>
+        </nav>
   </header>
     <%= yield %>
   </body>
