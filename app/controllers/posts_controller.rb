@@ -4,4 +4,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+  #新規投稿ページ
+  def new
+  end
+  #新規投稿(posts)
+  def create
+  end
 end
