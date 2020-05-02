@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get "/posts/new" => "posts#new"
   post "/posts/create" => "posts#create"
 
+  #users
+  get "/users/index" => "users#index"
+  get "/signup" => "users#new"
 
 end
