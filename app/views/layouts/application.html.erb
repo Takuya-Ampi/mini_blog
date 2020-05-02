@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='<%= "#{controller.controller_name}-#{controller.action_name}" %>'>
   <header class="header">
     <div class="header__title">
       <div class="header__logo">
@@ -37,5 +37,8 @@
         </nav>
   </header>
     <%= yield %>
+  <footer class="footer">
+    © 2020 mini blog
+  </footer>
   </body>
 </html>

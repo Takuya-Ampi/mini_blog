@@ -134,15 +134,15 @@ textarea {
   resize: none;
 }
 button {
-    display: block;
-    cursor: pointer;
-    padding: 0;
+  display: block;
+  cursor: pointer;
+  padding: 0;
 }
 
 /* 共通 */
 
-/* hdeader */
-.header{
+/* header */
+.header {
   margin: 0 auto;
   width: 100%;
   max-width: 1280px;
@@ -150,31 +150,47 @@ button {
   display: flex;
   justify-content: space-between;
 }
-.header__logo{
+.header__logo {
   width: 56px;
   height: 56px;
 }
-.header__logo-img{
+.header__logo-img {
   width: 56px;
   height: 56px;
 }
-.header__title{
+.header__title {
   display: flex;
   align-items: center;
 }
-.header__catch{
+.header__catch {
   margin-left: 10.5px;
   font-family: "Ainslie Sans", sans-serif;
   font-size: 36px;
   line-height: 1.16;
 }
-.header__nav{
+.header__nav {
   display: flex;
   align-items: center;
 }
-.header__menus{
+.header__menus {
   display: flex;
 }
-.header__menus > * + *{
+.header__menus > * + * {
   margin-left: 16px;
 }
+
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  background: #707070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ainslie Sans", sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}
+
