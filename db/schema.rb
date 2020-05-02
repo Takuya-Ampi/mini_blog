@@ -13,8 +13,7 @@
 ActiveRecord::Schema.define(version: 20200501132701) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "context"
-    t.string   "image_name"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 20200501132701) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
+    t.string   "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
