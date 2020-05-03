@@ -5,8 +5,8 @@
     <% @posts.each do |post| %>
       <div class="posts-index-item">
 
-        <!-- post.contentを使って書き換えてください -->
-        <%= post.content %>
+        <!-- 投稿詳細へ -->
+        <%= link_to(post.content, "/posts/#{post.id}") %>
       </div>
     <% end %>
   </div>

@@ -1,11 +1,5 @@
 .home-top {
-  .container {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1280px;
-    flex-flow: column;
-    align-items: center;
-  }
+
 
   .mv {
     position: relative;
@@ -41,6 +35,8 @@
     background: #e4f0f0;
   }
   .footer{
+    margin: 0 auto;
     position: static;
+    transform: translateX(0);
   }
 }
