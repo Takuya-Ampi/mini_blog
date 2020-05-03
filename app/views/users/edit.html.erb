@@ -2,6 +2,22 @@
   <div class="main">
     <div class="container">
       <h1 class="form-heading">編集する</h1>
+      <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= form_tag("/users/#{@user.id}/update") do %>
+        <div class="form">
+          <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
+          <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
+          <input class="password" type="password" placeholder="Password" name="password" value="<%= @user.password %>" required>
+          <div class="btn-section">
+            <input class="submit-btn" type="submit" value="保存">
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get "/signup" => "users#new"
   get "/users/:id" => "users#show"
   get "/users/:id/edit" => "users#edit"
-  post "/users/create" => "users#create"
   post "/users/:id/destroy" => "users#destroy"
+  post "/users/:id/update" => "users#update"
+  post "/users/create" => "users#create"
 
 end
