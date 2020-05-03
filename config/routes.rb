@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   get "/users/index" => "users#index"
   get "/signup" => "users#new"
   get "/users/:id" => "users#show"
+  get "/users/:id/edit" => "users#edit"
   post "/users/create" => "users#create"
+  post "/users/:id/destroy" => "users#destroy"
+
 end

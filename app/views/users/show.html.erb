@@ -3,6 +3,9 @@
     <p>ユーザー詳細ページ</p>
     <%= @user.name %>
     <%= @user.email %>
-
-  </div>
+    <div class="users-menu">
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+        <%= link_to("削除", "/users/#{@user.id}/destroy", {method:"post"}) %>
+      </div>
+    </div>
 </div>
