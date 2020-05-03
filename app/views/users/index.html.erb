@@ -1,7 +1,14 @@
+<div class="users-index-content">
+  <div class="main">
+    <div class="container">
+      <p>ユーザーの一覧が表示される</p>
+      <% @users.each do |user| %>
+        <div class="users-index-item">
 
-<div class="main">
-  <div class="container">
-    <p>ユーザーの一覧が表示される</p>
-
+          <!-- ユーザー詳細へ -->
+          <%= link_to(user.name, "/users/#{user.id}") %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
