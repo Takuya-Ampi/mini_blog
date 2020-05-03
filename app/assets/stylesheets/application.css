@@ -178,9 +178,13 @@ button {
 .header__nav {
   display: flex;
   align-items: center;
+
 }
 .header__menus {
   display: flex;
+}
+.header__menus > li > a {
+  font-family: "Ainslie Sans", sans-serif;
 }
 .header__menus > * + * {
   margin-left: 16px;
@@ -194,7 +198,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FDD835;
+  background:  rgba(253, 216, 53, 0.8);
   color: #fff;
   font-size: 24px;
 }
