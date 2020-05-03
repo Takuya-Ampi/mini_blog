@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
   #新規投稿ページ
   def new
+    @post = Post.new
   end
   #投稿詳細ページ
   def show
@@ -19,9 +20,12 @@ class PostsController < ApplicationController
   #新規投稿(post)
   def create
     @post = Post.new(content: params[:content])
-    @post.save
-    #投稿一覧にリダイレクト
-    redirect_to("/posts/index")
+    if @post.save
+      #投稿一覧にリダイレクト
+      redirect_to("/posts/index")
+    else
+      render("posts/new")
+    end
   end
   #投稿削除(post)
   def destroy
