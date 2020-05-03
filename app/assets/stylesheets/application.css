@@ -185,6 +185,19 @@ button {
 .header__menus > * + * {
   margin-left: 16px;
 }
+/* flash */
+.flash{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FDD835;
+  color: #fff;
+  font-size: 24px;
+}
 
 /* footer */
 .footer {

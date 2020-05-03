@@ -36,6 +36,12 @@
       </ul>
         </nav>
   </header>
+  <!-- flash[:notice]に代入されたメッセージを表示 -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   <footer class="footer">
     © 2020 mini blog
