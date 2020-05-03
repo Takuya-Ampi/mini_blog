@@ -1,4 +1,4 @@
-.posts-edit {
+.posts-edit-content {
   .main {
     height: 100vh;
     padding-top: 5%;
@@ -8,17 +8,28 @@
     display: flex;
     justify-content: center;
   }
+  .form-heading{
+    line-height: 1;
+  }
+  form{
+    margin-top: 24px;
+  }
   .form-body {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
+  // ヴァリデーションエラーが出た時のcss
+  .form-error{
+    margin-top: 24px;
+    color: red;
+  }
   .content {
     width: 100%;
-    height: 80%;
+    height: 90%;
   }
   .submit-btn {
     position: absolute;

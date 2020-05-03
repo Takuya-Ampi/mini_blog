@@ -210,7 +210,6 @@ button {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1280px;
   height: 180px;
   background: #707070;
   display: flex;
