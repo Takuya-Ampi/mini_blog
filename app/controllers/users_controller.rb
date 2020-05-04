@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
   end
+  #ログインページ
+  def login_form
+  end
 
   #ユーザー削除(post)
   def destroy
@@ -47,6 +50,20 @@ class UsersController < ApplicationController
       redirect_to("/users/index")
     else
       render("users/new")
+    end
+  end
+  #ログイン(post)
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    if @user
+      flash[:notice] = "ログインしました"
+      #トップページにリダイレクト
+      redirect_to("/")
+    else
+      @error_message = "メールアドレスかパスワードが間違っています"
+      @input_email = params[:email]
+      @input_password = params[:password]
+      render("users/login_form")
     end
   end
 end
