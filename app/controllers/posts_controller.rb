@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user
+
   #投稿一覧ページ
   def index
     @posts = Post.all
