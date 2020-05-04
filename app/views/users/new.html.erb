@@ -9,9 +9,9 @@
       <% end %>
       <%= form_tag("/users/create") do %>
         <div class="form">
-          <input type="text" placeholder="Name" name="name" required>
-          <input type="email" placeholder="Email" name="email" required>
-          <input class="password" type="password" placeholder="Password" name="password" required>
+          <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
+          <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
+          <input class="password" type="password" placeholder="Password" name="password" value="<%= @user.password %>" required>
           <div class="btn-section">
             <input class="submit-btn" type="submit" value="新規登録">
           </div>

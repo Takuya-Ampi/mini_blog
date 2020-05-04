@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by(id: params[:id])
     @user.destroy
+    flash[:notice] = "ユーザー情報を削除しました"
     #ユーザー一覧にリダイレクト
       redirect_to("/users/index")
   end
@@ -29,15 +30,23 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
-    @user.save
+    if @user.save
+      flash[:notice] = "編集が完了しました"
     #ユーザー一覧にリダイレクト
       redirect_to("/users/index")
+    else
+      render("users/edit")
+    end
   end
   #新規登録(post)
   def create
     @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-    @user.save
+    if @user.save
+      flash[:notice] = "ユーザー登録が完了しました"
     #ユーザー一覧にリダイレクト
       redirect_to("/users/index")
+    else
+      render("users/new")
+    end
   end
 end
