@@ -2,7 +2,15 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user, {only: [:index, :show, :edit, :update, :destroy, :logout]}
   before_action :forbid_login_user, {only: [:new, :login_form, :create, :login]}
+  before_action :ensure_correct_user, {only: [:edit, :update]}
 
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      #トップページにリダイレクト
+      redirect_to("/")
+  end
+  end
   #ユーザー一覧ページ
   def index
     @users = User.all
