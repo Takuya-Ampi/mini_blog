@@ -56,6 +56,8 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
+      # 変数sessionに、ログインに成功したユーザーのidを代入
+      session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       #トップページにリダイレクト
       redirect_to("/")
@@ -65,5 +67,12 @@ class UsersController < ApplicationController
       @input_password = params[:password]
       render("users/login_form")
     end
+  end
+  #ログインアウト
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    #リダイレクト
+    redirect_to("/login")
   end
 end

@@ -18,6 +18,11 @@
     </div>
     <nav class="header__nav">
       <ul class="header__menus">
+        <% if @current_user %>
+        <li>
+          <%= @current_user.name %>
+        </li>
+        <% end %>
         <li>
           <%= link_to("ホーム", "/") %>
         </li>
@@ -36,6 +41,9 @@
         <!-- getメソッドでloginアクションを走らせる -->
         <li>
           <%= link_to("ログイン", "/login") %>
+        </li>
+        <li>
+          <%= link_to("ログアウト", "/logout", {method: :post}) %>
         </li>
       </ul>
         </nav>
