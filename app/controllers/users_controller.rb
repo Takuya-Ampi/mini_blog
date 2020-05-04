@@ -81,11 +81,11 @@ class UsersController < ApplicationController
       render("users/login_form")
     end
   end
-  #ログインアウト
+  #ログアウト(post)
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
-    #リダイレクト
-    redirect_to("/login")
+    #トップページにリダイレクト
+    redirect_to("/")
   end
 end
