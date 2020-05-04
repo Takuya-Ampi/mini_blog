@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
       redirect_to("/login")
     end
   end
+  def forbid_login_user
+    #ログインしているユーザーが存在しないとき
+    if @current_user
+      #フラッシュメッセージ
+      flash[:notice] = "すでにログインしています"
+      #リダイレクト
+      redirect_to("/")
+    end
+  end
 end
