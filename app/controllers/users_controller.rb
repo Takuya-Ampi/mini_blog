@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = "ユーザー情報を削除しました"
     #ユーザー一覧にリダイレクト
-      redirect_to("/users/index")
+      redirect_to("/")
   end
   #ユーザー編集(post)
   def update
