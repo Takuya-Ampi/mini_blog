@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user
+  before_action :ensure_correct_user , {only: [:edit, :update, :destroy]}
 
   #投稿一覧ページ
   def index
@@ -53,5 +54,15 @@ class PostsController < ApplicationController
       render("posts/edit")
     end
   end
+
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+      # 投稿者のuser_idと現在ログインしているユーザーidが一致しない場合
+      if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+  end
+
 
 end
