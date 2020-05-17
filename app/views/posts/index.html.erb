@@ -1,13 +1,25 @@
 
 <div class="main">
   <div class="container">
-    <p>投稿の内容が表示される</p>
-    <% @posts.each do |post| %>
-      <div class="posts-index-item">
+    <ul class="posts-index-item">
 
+    <% @posts.each do |post| %>
+        <li class="card card-skin">
+          <%# 投稿詳細へ飛ぶようにしたい %>
+          <a href="#">
+            <div class="card__imgframe"></div>
+            <div class="card__textbox">
+                <div class="card__user-name">
+                </div>
+              <div class="card__overviewtext">
+                <%= post.content %>
+              </div>
+            </div>
+          </a>
+        </li>
         <!-- 投稿詳細へ -->
-        <%= link_to(post.content, "/posts/#{post.id}") %>
-      </div>
+
     <% end %>
+    </ul>
   </div>
 </div>

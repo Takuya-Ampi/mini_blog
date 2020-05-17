@@ -1,3 +1,53 @@
-// .posts-index {
-//   
-// }
+.posts-index {
+  .posts-index-item {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    & > :not(:nth-child(4n-3)) {
+      margin-left: 42.6px;
+    }
+    & > :nth-child(n + 5) {
+      margin-top: 32px;
+    }
+  }
+  .card {
+    width: 288px;
+    height: auto;
+  }
+
+  .card__imgframe {
+    width: 100%;
+    height: auto;
+    padding-top: 56.25%;
+    background: url(https://placehold.jp/640x360.png) no-repeat center;
+    background-size: cover;
+  }
+
+  .card__textbox {
+    width: 100%;
+    height: 68px;
+    padding: 20px 18px;
+    background: #ffffff;
+  }
+
+  .card__textbox > * + * {
+    margin-top: 10px;
+  }
+
+  .card__user-name {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.25;
+  }
+
+  .card__overviewtext {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #ffffff;
+    height: 20px;
+    overflow: hidden;
+  }
+  .card-skin .card__textbox {
+    background: #333333;
+  }
+}
