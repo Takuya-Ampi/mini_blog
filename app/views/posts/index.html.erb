@@ -6,7 +6,7 @@
     <% @posts.each do |post| %>
         <li class="card card-skin">
           <%# 投稿詳細へ飛ぶようにしたい %>
-          <a href="#">
+          <a href="/posts/<%= post.user_id %>">
             <div class="card__imgframe"></div>
             <div class="card__textbox">
                 <div class="card__user-name">

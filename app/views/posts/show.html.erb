@@ -1,6 +1,12 @@
 <div class="main">
   <div class="container">
     <p>投稿詳細ページ</p>
+    <div class="post-user-name">
+      <%= link_to(@user.name, "/users/#{@user.id}") %>
+      <p>
+        <%= @post.content %>
+      </p>
+    </div>
     <%= @post.content %>
     <div class="posts-menu">
       <%= link_to("編集", "/posts/#{@post.id}/edit") %>

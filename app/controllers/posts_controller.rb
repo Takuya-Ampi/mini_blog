@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   #投稿詳細ページ
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
   end
   #投稿編集ページ
   def edit
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
     @post = Post.new(
       content: params[:content],
       # user_idの値をログインしているユーザーのidにする
-      user_id:  @current_user.id
+      user_id: @current_user.id
       )
     if @post.save
       flash[:notice] = "投稿に成功しました"
