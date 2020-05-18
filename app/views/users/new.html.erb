@@ -7,9 +7,11 @@
           <%= message %>
         </div>
       <% end %>
-      <%= form_tag("/users/create") do %>
+      <%= form_tag("/users/create", {multipart: true}) do %>
         <div class="form">
           <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
+          <p class="text">アイコン画像を選択して下さい（任意)</p>
+          <input class="input-image" name="image_name" type="file">
           <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
           <input class="password" type="password" placeholder="Password" name="password" value="<%= @user.password %>" required>
           <div class="btn-section">

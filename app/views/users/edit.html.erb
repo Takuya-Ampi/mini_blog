@@ -7,9 +7,10 @@
           <%= message %>
         </div>
       <% end %>
-      <%= form_tag("/users/#{@user.id}/update") do %>
+      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
         <div class="form">
-          <input type="text" placeholder="Name" name="name" value="<%= @user.name %>" required>
+          <input name="name" value="<%= @user.name %>">
+          <input class="input-image" name="image" type="file">
           <input type="email" placeholder="Email" name="email" value="<%= @user.email %>" required>
           <input class="password" type="password" placeholder="Password" name="password" value="<%= @user.password %>" required>
           <div class="btn-section">

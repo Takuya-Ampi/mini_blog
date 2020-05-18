@@ -45,6 +45,15 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
+    # 画像を保存する処理を追加
+    if params[:image]
+      #画像の名前はidを使う（1.jpg等)
+      @user.image_name = "#{@user.id}.jpg"
+      #変数imageにformから送られてきたparams[:image]を格納
+      image = params[:image]
+      #画像を保存
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
     if @user.save
       flash[:notice] = "編集が完了しました"
     #ユーザー一覧にリダイレクト
@@ -55,10 +64,22 @@ class UsersController < ApplicationController
   end
   #新規登録(post)
   def create
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+    @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name: "default_user.jpg")
+
     if @user.save
+      # 画像を保存する処理を追加
+      if params[:image_name]
+        #画像の名前はidを使う（1.jpg等)
+        @user.image_name = "#{@user.id}.jpg"
+        #変数imageにformから送られてきたparams[:image]を格納
+        image = params[:image_name]
+        #publicに画像を保存
+        File.binwrite("public/user_images/#{@user.image_name}", image.read)
+        #画像の名前を変更したので保存
+        @user.save
+      end
       session[:user_id] = @user.id
-      flash[:notice] = "ユーザー登録が完了しました"
+      flash[:notice] = "ユーザー登録が完了しました#{@user.id}"
     #ユーザー一覧にリダイレクト
       redirect_to("/users/index")
     else
