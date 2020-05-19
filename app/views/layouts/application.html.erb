@@ -9,24 +9,24 @@
   </head>
 
   <body class='<%= "#{controller.controller_name}-#{controller.action_name}" %>'>
-  <header class="header">
-    <div class="header__title">
-      <div class="header__logo">
-        <img class="header__logo-img" src="<%= image_path('home/logo.jpg') %>" alt="ロゴ">
+  <header class="common-header">
+    <div class="common-header__title">
+      <div class="common-header__logo">
+        <img class="common-header__logo-img" src="<%= image_path('home/logo.jpg') %>" alt="ロゴ">
       </div>
-      <h2 class="header__catch">mini blog</h2>
+      <h2 class="common-header__catch">mini blog</h2>
     </div>
-    <nav class="header__nav">
-      <ul class="header__menus">
+    <nav class="common-header__nav">
+      <ul class="common-header__menus">
         <% if @current_user %>
         <li>
           <%= link_to("ホーム", "/") %>
         </li>
         <li>
-          <%= link_to("投稿一覧", "/posts/index") %>
+          <%= link_to("新規投稿", "/posts/new") %>
         </li>
         <li>
-          <%= link_to("新規投稿", "/posts/new") %>
+          <%= link_to("投稿一覧", "/posts/index") %>
         </li>
         <li>
           <%= link_to("ユーザー", "/users/index") %>
@@ -56,7 +56,7 @@
       </div>
     <% end %>
     <%= yield %>
-  <footer class="footer">
+  <footer class="common-footer">
     © 2020 mini blog
   </footer>
   </body>
