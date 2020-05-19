@@ -1,13 +1,18 @@
 <div class="users-index-content">
   <div class="main">
-    <div class="container">
-      <p>ユーザーの一覧が表示される</p>
+    <p class="title">Users</p>
+    <ul class="users">
       <% @users.each do |user| %>
-        <div class="users-index-item">
+        <li class="users-item">
+          <a class="users-item-link" href=<%= "/users/#{user.id}" %>>
+            <div class="user-icon">
+              <%= image_tag "/user_images/#{user.image_name}" %>
+            </div>
+            <!-- ユーザー詳細へ -->
+            <p><%= user.name %></p>
 
-          <!-- ユーザー詳細へ -->
-          <%= link_to(user.name, "/users/#{user.id}") %>
-        </div>
+          </a>
+        </li>
       <% end %>
     </div>
   </div>
