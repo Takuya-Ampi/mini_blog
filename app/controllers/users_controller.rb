@@ -34,7 +34,9 @@ class UsersController < ApplicationController
   #ユーザー削除(post)
   def destroy
     @user = User.find_by(id: params[:id])
+    @posts = @user.posts
     @user.destroy
+    @posts.destroy_all
     flash[:notice] = "ユーザー情報を削除しました"
     #ユーザー一覧にリダイレクト
       redirect_to("/")
@@ -79,7 +81,7 @@ class UsersController < ApplicationController
         @user.save
       end
       session[:user_id] = @user.id
-      flash[:notice] = "ユーザー登録が完了しました#{@user.id}"
+      flash[:notice] = "ユーザー登録が完了しました"
     #ユーザー一覧にリダイレクト
       redirect_to("/users/index")
     else

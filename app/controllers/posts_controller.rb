@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       content: params[:content],
+      title: params[:title],
       # user_idの値をログインしているユーザーのidにする
       user_id: @current_user.id
       )
@@ -47,6 +48,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
+    @post.title = params[:title]
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")

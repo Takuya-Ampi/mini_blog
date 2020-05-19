@@ -9,6 +9,11 @@
       <% end %>
       <%= form_tag("/posts/#{@post.id}/update") do %>
         <div class="form">
+          <div class="form-title">
+            <p class="form-notes1">タイトルを入力してください</p>
+            <input class="form-input" name="title" type="text" placeholder="<%= @post.title %>" />
+          </div>
+          <p class="form-notes2">mini blog</p>
           <div class="form-body">
             <textarea class="content" name="content"><%= @post.content %></textarea>
             <input class="submit-btn" type="submit" value="保存">

@@ -1,7 +1,6 @@
 <div class="posts-new-content">
   <div class="main">
     <div class="container">
-      <h1 class="form-heading">投稿する</h1>
       <% @post.errors.full_messages.each do |message| %>
         <div class="form-error">
           <%= message %>
@@ -9,10 +8,15 @@
       <% end %>
       <%= form_tag("/posts/create") do %>
         <div class="form">
+          <div class="form-title">
+            <p class="form-notes1">タイトルを入力してください</p>
+            <input class="form-input" name="title" type="text" placeholder="タイトル" />
+          </div>
+          <p class="form-notes2">mini blog</p>
           <div class="form-body">
             <textarea class="content" name="content"><%= @post.content %></textarea>
-            <input class="submit-btn" type="submit" value="投稿">
           </div>
+          <input class="submit-btn" type="submit" value="投稿">
         </div>
       <% end %>
     </div>
