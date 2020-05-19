@@ -11,13 +11,16 @@
     padding: 24px;
     width: 50%;
     max-width: 760px;
-    background:#fff;
-    border: 1px solid #ccc;
-    box-shadow: 0px 3px 6px #00000029;
     & > * + * {
       margin-top: 24px;
     }
-
+  }
+  .users-item {
+    width: 100%;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 6px #00000029;
   }
   .users-item-link{
     display: flex;

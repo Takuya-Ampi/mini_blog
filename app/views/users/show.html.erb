@@ -1,11 +1,12 @@
 <div class="main">
   <div class="container">
-    <p>ユーザー詳細ページ</p>
-    <%= @user.name %>
-    <% if @user.id == @current_user.id %>
-      <%= @user.email %>
-    <% end %>
-    <div class="users-menu">
+    <p class="user-info">ユーザー情報</p>
+    <div class="user-section">
+      <div class="user-icon user-icon--big">
+        <%= image_tag "/user_images/#{@user.image_name}" %>
+      </div>
+      <%= @user.name %>
+      <div class="users-menu">
         <%# @userのidとセッションid(=@current_user.id)が等しい時リンク先を表示 %>
         <% if @user.id == @current_user.id %>
           <%= link_to("編集", "/users/#{@user.id}/edit") %>
@@ -13,4 +14,31 @@
         <% end %>
       </div>
     </div>
+
+    <% if !@user.posts.empty? %>
+      <p class="posts-info">投稿</p>
+      <%# eachで投稿を回す。modelにpostsを定義してるから、@user.postsでユーザーの全ての投稿が取得できる。 %>
+      <ul class="posts">
+        <% @user.posts.each do |post| %>
+        <li class="posts-item">
+          <a href="/posts/#{post.id}" class="posts-item-link">
+            <div class="post-left">
+              <div class="user-icon ">
+                <img src="<%= "/user_images/#{post.user.image_name}" %>">
+              </div>
+            </div>
+            <div class="post-right">
+                <%= post.content %>
+            </div>
+          </a>
+        </li>
+      <% end %>
+    <% else %>
+    <p class="posts-info-empty">投稿はありません</p>
+    <% end %>
+    </div>
+    <div class="user-posts">
+
+    </div>
+  </div>
 </div>

@@ -1,0 +1,88 @@
+.users-show {
+  .main {
+    padding-top: 80px;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+  .user-info {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .user-section {
+    margin: 24px auto 0;
+    padding: 32px 0;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .users-menu {
+    margin-top: 16px;
+    display: flex;
+    & > * + * {
+      margin-left: 16px;
+    }
+    a {
+      display: inline-block;
+      padding: 0.4em 1.6em;
+      font-size: 0.8rem;
+      color: #00b5ad;
+      text-decoration: none;
+      border: 1px #00b5ad solid;
+      border-radius: 20px;
+      transition: 0.4s ease;
+    }
+  }
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px;
+    img {
+      border-radius: 9999px;
+    }
+  }
+  .user-icon--big {
+    width: 72px;
+    height: 72px;
+  }
+  .posts-info {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 36px;
+  }
+  .posts-info-empty {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 24px;
+  }
+  .posts {
+    margin: 24px auto 0;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    & > * + * {
+      margin-top: 32px;
+    }
+  }
+  .posts-item {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .posts-item-link {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    & > * + * {
+      margin-left: 16px;
+    }
+  }
+}
