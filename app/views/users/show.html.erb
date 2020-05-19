@@ -18,10 +18,11 @@
     <% if !@user.posts.empty? %>
       <p class="posts-info">投稿</p>
       <%# eachで投稿を回す。modelにpostsを定義してるから、@user.postsでユーザーの全ての投稿が取得できる。 %>
+
       <ul class="posts">
         <% @user.posts.each do |post| %>
         <li class="posts-item">
-          <a href="/posts/#{post.id}" class="posts-item-link">
+          <a href=<%= "/posts/#{post.user_id}" %> class="posts-item-link">
             <div class="post-left">
               <div class="user-icon ">
                 <img src="<%= "/user_images/#{post.user.image_name}" %>">

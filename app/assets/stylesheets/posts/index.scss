@@ -19,8 +19,9 @@
     width: 100%;
     height: auto;
     padding-top: 56.25%;
-    background: url(https://placehold.jp/640x360.png) no-repeat center;
-    background-size: cover;
+    background: image_url(posts/react_card_icon) no-repeat center;
+    background-size: contain;
+    border: 1px solid #ccc;
   }
 
   .card__textbox {

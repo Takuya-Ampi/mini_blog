@@ -1,0 +1,50 @@
+.posts-show {
+  .main {
+    padding-top: 80px;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+  .post-card-icon {
+    margin: 0 auto;
+    width: 50%;
+    height: 0;
+    padding-top: 30%;
+    background: image_url(posts/react_card_icon) no-repeat center;
+    background-size: contain;
+    border: 1px solid #ccc;
+  }
+  .post-catch {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 24px;
+    font-family: "Ainslie Sans", sans-serif;
+  }
+  .post-content {
+    margin: 24px auto 0;
+    width: 50%;
+    padding: 36px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .post-menu {
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: center;
+    & > * + * {
+      margin-left: 16px;
+    }
+    a {
+      display: inline-block;
+      padding: 0.4em 1.6em;
+      font-size: 0.8rem;
+      color: #00b5ad;
+      text-decoration: none;
+      border: 1px #00b5ad solid;
+      border-radius: 20px;
+      transition: 0.4s ease;
+    }
+  }
+}
