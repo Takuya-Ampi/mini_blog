@@ -5,7 +5,7 @@
       <div class="user-icon user-icon--big">
         <%= image_tag "/user_images/#{@user.image_name}" %>
       </div>
-      <%= @user.name %>
+      <p class="user-name"><%= @user.name %></p>
       <div class="users-menu">
         <%# @userのidとセッションid(=@current_user.id)が等しい時リンク先を表示 %>
         <% if @user.id == @current_user.id %>
