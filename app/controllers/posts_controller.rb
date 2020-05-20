@@ -24,11 +24,10 @@ class PostsController < ApplicationController
   #新規投稿(post)
   def create
     @post = Post.new(
-      content: params[:content],
-      title: params[:title],
+      posts_params,
       # user_idの値をログインしているユーザーのidにする
       user_id: @current_user.id
-      )
+    )
     if @post.save
       flash[:notice] = "投稿に成功しました"
       #投稿一覧にリダイレクト
@@ -66,5 +65,10 @@ class PostsController < ApplicationController
     end
   end
 
+  private
+
+  def posts_params
+    params.require(:posts).permit(:title, :content, tag_ids: [])
+  end
 
 end

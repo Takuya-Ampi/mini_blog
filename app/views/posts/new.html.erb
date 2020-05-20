@@ -17,13 +17,13 @@
             <textarea class="content" name="content"><%= @post.content %></textarea>
           </div>
           <div class="check_box">
-            <span>タグ</span>
+            <p class="check_box_title">タグ</p>
             <%= collection_check_boxes(:posts, :tag_ids, Tag.all, :id, :name) do |tag| %>
-              <div>
+              <div class="round">
+                <%= tag.check_box %>
                 <%= tag.label do %>
-                  <%= tag.check_box %>
-                  <%= tag.text %>
                 <% end %>
+                <p class="check_box_txt"><%= tag.text %></p>
               </div>
             <% end %>
           </div>
