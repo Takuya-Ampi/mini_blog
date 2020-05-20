@@ -5,7 +5,8 @@ class PostsController < ApplicationController
 
   #投稿一覧ページ
   def index
-    @posts = Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+
   end
   #新規投稿ページ
   def new
@@ -23,11 +24,10 @@ class PostsController < ApplicationController
 
   #新規投稿(post)
   def create
-    @post = Post.new(
-      posts_params,
-      # user_idの値をログインしているユーザーのidにする
-      user_id: @current_user.id
-    )
+    @post = Post.new(posts_params)
+    @post.content = params[:content]
+    @post.title = params[:title]
+    @post.user_id = @current_user.id
     if @post.save
       flash[:notice] = "投稿に成功しました"
       #投稿一覧にリダイレクト
