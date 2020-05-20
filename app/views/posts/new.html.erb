@@ -7,6 +7,19 @@
         </div>
       <% end %>
       <%= form_tag("/posts/create") do %>
+          <div class="check_box">
+            <p class="check_box_title">ジャンル</p>
+            <ul class="lists">
+            <%= collection_check_boxes(:posts, :tag_ids, Tag.all, :id, :name) do |tag| %>
+                <div class="lists_item">
+                  <%= tag.check_box %>
+                  <%= tag.label do %>
+                  <% end %>
+                  <p class="check_box_txt"><%= tag.text %></p>
+                </div>
+            <% end %>
+            </ul>
+          </div>
         <div class="form">
           <div class="form-title">
             <p class="form-notes1">タイトルを入力してください</p>
@@ -15,17 +28,6 @@
           <p class="form-notes2">mini blog</p>
           <div class="form-body">
             <textarea class="content" name="content"><%= @post.content %></textarea>
-          </div>
-          <div class="check_box">
-            <p class="check_box_title">タグ</p>
-            <%= collection_check_boxes(:posts, :tag_ids, Tag.all, :id, :name) do |tag| %>
-              <div class="round">
-                <%= tag.check_box %>
-                <%= tag.label do %>
-                <% end %>
-                <p class="check_box_txt"><%= tag.text %></p>
-              </div>
-            <% end %>
           </div>
           <input class="submit-btn" type="submit" value="投稿">
         </div>
