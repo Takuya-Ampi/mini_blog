@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container">
+    <h1 class="form-heading">ログイン</h1>
+    <% if @error_message %>
+      <div class="form-error">
+        <%= @error_message %>
+      </div>
+    <% end %>
+    <%= form_tag("/login") do %>
+      <div class="form">
+        <input type="email" placeholder="Email" name="email" value="<%= @input_email %>" required>
+        <input class="password" type="password" placeholder="Password" name="password" value="<%= @input_password %>" required>
+        <div class="btn-section">
+          <input class="submit-btn" type="submit" value="ログイン">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

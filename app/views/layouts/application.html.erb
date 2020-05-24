@@ -3,12 +3,61 @@
   <head>
     <title>App</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='<%= "#{controller.controller_name}-#{controller.action_name}" %>'>
+  <header class="common-header">
+    <div class="common-header__title">
+      <div class="common-header__logo">
+        <img class="common-header__logo-img" src="<%= image_path('home/logo.jpg') %>" alt="ロゴ">
+      </div>
+      <h2 class="common-header__catch">mini blog</h2>
+    </div>
+    <nav class="common-header__nav">
+      <ul class="common-header__menus">
+        <% if @current_user %>
+        <li>
+          <%= link_to("ホーム", "/") %>
+        </li>
+        <li>
+          <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+        <li>
+          <%= link_to("投稿一覧", "/posts/index") %>
+        </li>
+        <li>
+          <%= link_to("ユーザー", "/users/index") %>
+        </li>
+        <!-- getメソッドでloginアクションを走らせる -->
+        <li>
+          <%= link_to("ログアウト", "/logout", {method: :post}) %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to("ホーム", "/") %>
+        </li>
+        <li>
+          <%= link_to("新規登録", "/signup") %>
+        </li>
+        <li>
+          <%= link_to("ログイン", "/login") %>
+        </li>
+        <% end %>
+      </ul>
+        </nav>
+  </header>
+  <!-- flash[:notice]に代入されたメッセージを表示 -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
+  <footer class="common-footer">
+    © 2020 mini blog
+  </footer>
   </body>
 </html>

@@ -1,0 +1,36 @@
+
+<div class="main">
+  <div class="common-container">
+    <%= form_tag '/posts/index', method: :get do %>
+      <div class="select_wrapper">
+        <%= select_tag :tag_id,
+          options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+          {
+            prompt: 'タグで絞り込み',
+            onchange: 'submit(this.form);'
+          }
+        %>
+      </div>
+    <% end %>
+    <ul class="posts-index-item">
+
+    <% @posts.each do |post| %>
+        <li class="card card-skin">
+          <%# 投稿詳細へ飛ぶようにしたい %>
+          <a href="/posts/<%= post.id %>">
+            <div class="card__imgframe"></div>
+            <div class="card__textbox">
+                <div class="card__user-name">
+                  <%= post.user.name %>
+                </div>
+              <div class="card__overviewtext">
+                タイトル：<%= post.title %>
+              </div>
+            </div>
+          </a>
+        </li>
+
+    <% end %>
+    </ul>
+  </div>
+</div>

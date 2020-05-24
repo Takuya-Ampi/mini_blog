@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  #投稿一覧ページ
+  #トップページ
   def home
 
   end

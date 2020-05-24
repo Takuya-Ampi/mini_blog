@@ -13,3 +13,209 @@
  *= require_tree .
  *= require_self
  */
+/* reset */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+header,
+footer,
+main,
+nav,
+article,
+aside,
+section,
+time,
+video {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+button {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* 共通 */
+.common-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+  }
+
+/* header */
+.common-header {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+  height: 120px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.common-header__logo {
+  width: 56px;
+  height: 56px;
+}
+.common-header__logo-img {
+  width: 56px;
+  height: 56px;
+}
+.common-header__title {
+  display: flex;
+  align-items: center;
+}
+.common-header__catch {
+  margin-left: 10.5px;
+  font-family: "Ainslie Sans", sans-serif;
+  font-size: 36px;
+  line-height: 1.16;
+}
+.common-header__nav {
+  display: flex;
+  align-items: center;
+
+}
+.common-header__menus {
+  display: flex;
+}
+.common-header__menus > li > a {
+  font-family: "Ainslie Sans", sans-serif;
+}
+.common-header__menus > * + * {
+  margin-left: 16px;
+}
+/* flash */
+.flash{
+  margin: 0 auto;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:  rgba(253, 216, 53, 0.8);
+  color: #fff;
+  font-size: 24px;
+}
+
+/* footer */
+.common-footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 180px;
+  background: #707070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ainslie Sans", sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}

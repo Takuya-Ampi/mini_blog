@@ -1,0 +1,18 @@
+<div class="users-index-content">
+  <div class="main">
+    <p class="title">Users</p>
+    <ul class="users">
+      <% @users.each do |user| %>
+        <li class="users-item">
+          <a class="users-item-link" href=<%= "/users/#{user.id}" %>>
+            <div class="user-icon">
+              <%= image_tag "/user_images/#{user.image_name}" %>
+            </div>
+            <p><%= user.name %></p>
+
+          </a>
+        </li>
+      <% end %>
+    </div>
+  </div>
+</div>
