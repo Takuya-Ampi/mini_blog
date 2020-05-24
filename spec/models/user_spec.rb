@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     expect(user.errors[:name]).to include("を入力してください")
   end
   it "名前の長さが21文字以上の場合、無効である" do
-    user = FactoryBot.build(:user, name: '123456789123456789123')
+    user = FactoryBot.build(:user, name:  "a" * 21)
     user.valid?
     expect(user.errors[:name]).to include("は20文字以内で入力してください")
   end
@@ -36,12 +36,12 @@ RSpec.describe User, type: :model do
     expect(user.errors[:password]).to include("を入力してください")
   end
   it "パスワードが5文字以下の場合、無効である" do
-    user = FactoryBot.build(:user, password: 'pass')
+    user = FactoryBot.build(:user, password: "a" * 5)
     user.valid?
     expect(user.errors[:password]).to include("は6文字以上で入力してください")
   end
   it "パスワードが13文字以上の場合、無効である" do
-    user = FactoryBot.build(:user, password: '1234567891234')
+    user = FactoryBot.build(:user, password: "a" * 13)
     user.valid?
     expect(user.errors[:password]).to include("は12文字以内で入力してください")
   end
